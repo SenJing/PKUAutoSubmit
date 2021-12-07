@@ -152,9 +152,12 @@ def click_inPeking(driver):
 def submit(driver):
     driver.find_element_by_xpath(
         '//button/span[contains(text(),"保存")]').click()
-    WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '(//button/span[contains(text(),"提交")])[3]')))
+    try:
+        WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located(
+                (By.XPATH, '(//button/span[contains(text(),"提交")])[3]')))
+    except TimeoutException:
+        print('提交超时')
     driver.find_element_by_xpath(
         '(//button/span[contains(text(),"提交")])[3]').click()
     time.sleep(0.1)
