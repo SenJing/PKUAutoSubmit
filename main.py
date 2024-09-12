@@ -41,7 +41,7 @@ def go(config):
 
 if __name__ == '__main__':
 
-    driver_pjs = webdriver.PhantomJS(executable_path=sys_path(browser="phantomjs"))
+    driver_pjs = webdriver.PhantomJS(executable_path=sys_path(browser="phantomjs")，,service_args=['--ignore-ssl-errors=true'])
 
     # chrome_options = Options()
     # chrome_options.add_argument("--headless")
